@@ -1,4 +1,4 @@
-package org.invisibletech
+package org.invisibletech.microblog
 
 import org.springframework.boot.SpringApplication
 

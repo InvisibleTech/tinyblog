@@ -1,4 +1,4 @@
-package org.invisibletech
+package org.invisibletech.microblog
 
 import org.springframework.context.annotation.Configuration
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration
