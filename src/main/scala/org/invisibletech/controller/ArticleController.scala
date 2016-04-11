@@ -1,10 +1,10 @@
-package org.invisibletech.microblog.controller
+package org.invisibletech.tinyblog.controller
 
 import java.lang.Long
 import javax.validation.Valid
 
-import org.invisibletech.microblog.model.Article
-import org.invisibletech.microblog.service.ArticleRepository
+import org.invisibletech.tinyblog.model.Article
+import org.invisibletech.tinyblog.service.ArticleRepository
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.validation.BindingResult

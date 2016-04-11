@@ -1,4 +1,4 @@
-package org.invisibletech.microblog.model
+package org.invisibletech.tinyblog.model
 
 import javax.persistence.Id
 import javax.persistence.GeneratedValue

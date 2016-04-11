@@ -1,4 +1,4 @@
-package org.invisibletech.microblog.controller
+package org.invisibletech.tinyblog.controller
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
@@ -22,6 +22,6 @@ class RestErrorHandler {
   @ResponseStatus(HttpStatus.NOT_FOUND)
   @ResponseBody
   def handleArticleNotFound(exception: ArticleNotFoundException): RestError = {
-        new RestError("Zoinks", Map("id" -> "Not a good one"))
+        new RestError(exception.getMessage, exception.additionalInfo)
   }
 }

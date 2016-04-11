@@ -1,1 +1,1 @@
-var app = angular.module('MicroBlog', []);
+var app = angular.module('TinyBlog', []);
