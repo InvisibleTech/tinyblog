@@ -21,13 +21,13 @@ class ArticleController @Autowired() (private val articleRepository: ArticleRepo
   }
 
   @RequestMapping(method = Array(RequestMethod.POST))
-  def addItem(@RequestBody() article: Article): Article = {
+  def addArticle(@RequestBody() article: Article): Article = {
     article.setId(null)
     articleRepository.saveAndFlush(article)
   }
 
   @RequestMapping(value=Array("/{id}"), method=Array(RequestMethod.PUT))
-  def updateItem(@RequestBody() article: Article, @PathVariable() id: Long): Article = {
+  def updateArticle(@RequestBody() article: Article, @PathVariable() id: Long): Article = {
     // Trust but verify - use Option and orThrow
     Option(articleRepository.findOne(id)) match {
       case Some(a) => articleRepository.saveAndFlush(article)
@@ -36,5 +36,10 @@ class ArticleController @Autowired() (private val articleRepository: ArticleRepo
 
     article.setId(id)
     articleRepository.saveAndFlush(article)
+  }
+
+  @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+  def deleteArticle(@PathVariable() id: Long) = {
+    articleRepository.delete(id);  
   }
 }

@@ -1,9 +1,12 @@
-app.controller('ArticleController',['$scope', function($scope) {
-    $scope.articles = [
-        {
-            id: 1,
-            title: 'The Book of Trees', 
-            content: 'Long, long ago in a galaxy far, far away.  There lived an amphibious monstrosity named "Jar Jar Binks".' 
-        }
-    ];
+app.controller('ArticleController',['$scope', 'ArticleService', function($scope, ArticleService) {
+    ArticleService.success(function(data) {
+        $scope.articles = data;
+    });
+    // Need to figure out delete.
+    // $scope.deleteArticle = function(article) {
+    //   article.$remove(function() {
+    //     $scope.articles.splice($scope.articles.indexOf(article), 1);
+    //   });
+    // };
+
 }]);
