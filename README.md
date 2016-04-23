@@ -17,3 +17,5 @@ java -jar target/tinyblog-1.0-SNAPSHOT.jar
 * https://devcenter.heroku.com/articles/deploying-spring-boot-apps-to-heroku#creating-a-spring-boot-app
 * http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-profiles.html
 * http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html#boot-features-external-config-profile-specific-properties
+* http://blog.ninja-squad.com/2015/05/28/angularjs-promises/
+
