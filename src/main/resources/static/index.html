@@ -46,7 +46,7 @@
                     <input type="text" class="form-control" ng-model="articleCntrl.newArticle.title" placeholder="Title..." />
                     <input type="text" class="form-control" ng-model="articleCntrl.newArticle.content" placeholder="Share a thought..." />
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="submit" ng-disabled="!articleCntrl.newArticle" title="Add">
+                        <button class="btn btn-default" type="submit" ng-disabled="!articleCntrl.isValued()" title="Add">
                             <span class="glyphicon glyphicon-plus">
                             </span>
                         </button>

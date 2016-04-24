@@ -22,4 +22,8 @@ app.controller('ArticleController',['ArticleService', function(ArticleService) {
                    self.newArticle = {}; 
                 });
     }
+
+    self.isValued = function() {
+       return (self.newArticle.title && self.newArticle.content) != undefined;
+    }
 }]);

@@ -1,5 +1,6 @@
 package org.invisibletech.tinyblog.controller
 
+import java.lang.Boolean
 import java.lang.Long
 import javax.validation.Valid
 
@@ -7,8 +8,8 @@ import org.invisibletech.tinyblog.model.Article
 import org.invisibletech.tinyblog.service.ArticleRepository
 
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.validation.BindingResult
-
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
 import org.springframework.validation.BindingResult
 import org.springframework.web.bind.annotation.{ RestController, PathVariable, RequestMapping, RequestMethod, RequestBody }
 
@@ -40,6 +41,9 @@ class ArticleController @Autowired() (private val articleRepository: ArticleRepo
 
   @RequestMapping(value = Array("/{id}"), method = Array(RequestMethod.DELETE))
   def deleteArticle(@PathVariable() id: Long) = {
-    articleRepository.delete(id);
+    articleRepository.delete(id)
+
+    // To make sure a 200 with NO CONTENT is not returned we do this.
+    new ResponseEntity[Boolean](Boolean.TRUE, HttpStatus.NO_CONTENT)
   }
 }
