@@ -9,13 +9,15 @@ My approach was to comment out things on the UI and get a controller to render t
 Tests are lacking at this point.  If I have time from other projects I may go back and add them.  They are important, but a holistic, modern example of a Scala based SpringBoot REST endpoint and Angular 1.5+ is the main point here.
 
 # To upgrade bower components
-
+bower update
 
 # To build
 mvn clean package
 
 # To run
 java -jar target/tinyblog-1.0-SNAPSHOT.jar
+
+#To push to Heroku
 
 # References
 * Shyam Seshadri and Brad Green. “AngularJS: Up and Running.”
