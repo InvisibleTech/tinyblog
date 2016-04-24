@@ -18,6 +18,9 @@ mvn clean package
 java -jar target/tinyblog-1.0-SNAPSHOT.jar
 
 #To push to Heroku
+heroku create
+git push heroku master
+heroku open
 
 # References
 * Shyam Seshadri and Brad Green. “AngularJS: Up and Running.”
