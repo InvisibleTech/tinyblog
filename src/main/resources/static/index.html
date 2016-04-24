@@ -5,17 +5,17 @@
     </head>
 
     <body ng-app="TinyBlog">
-        <div class="container" ng-controller="ArticleController">
+        <div class="container" ng-controller="ArticleController as articleCntrl">
             <div class="page-header">
                 <h1>
                     Tiny Blog
                 </h1>
             </div>
-            <div class="alert alert-info" ng-hide="articles && articles.length >0" role="alert">
+            <div class="alert alert-info" ng-hide="articleCntrl.articles && articleCntrl.articles.length >0" role="alert">
                 There are no blog posts.
             </div>
-            <form class="form-horizontal" ng-submit="addArticle(newArticle)" role="form">
-                <div class="form-group" ng-repeat="article in articles">
+            <form class="form-horizontal" ng-submit="articleCntrl.addArticle()" role="form">
+                <div class="form-group" ng-repeat="article in articleCntrl.articles">
                     <div class="col-xs-2">
                         <label>
                         {{article.title}}
@@ -35,24 +35,23 @@
                     </div>
                     -->
                     <div class="col-xs-3">
-                        <button class="pull-right btn btn-danger" ng-click="deleteArticle(article)" title="Delete" type="button">
+                        <button class="pull-right btn btn-danger" ng-click="articleCntrl.deleteArticle(article)" title="Delete" type="button">
                             <span class="glyphicon glyphicon-trash">
                             </span>
                         </button>
                     </div>
                 </div>
                 <hr/>
-                <!--                 
                 <div class="input-group">
-                    <input type="text" class="form-control" ng-model="newArticle" placeholder="Share your thoughts..." />
+                    <input type="text" class="form-control" ng-model="articleCntrl.newArticle.title" placeholder="Title..." />
+                    <input type="text" class="form-control" ng-model="articleCntrl.newArticle.content" placeholder="Share a thought..." />
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="submit" ng-disabled="!newArticle" title="Add">
+                        <button class="btn btn-default" type="submit" ng-disabled="!articleCntrl.newArticle" title="Add">
                             <span class="glyphicon glyphicon-plus">
                             </span>
                         </button>
                     </span>
                 </div>
-                -->
             </form>
         </div>
 

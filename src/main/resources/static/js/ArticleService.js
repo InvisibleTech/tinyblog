@@ -1,10 +1,5 @@
-app.factory('ArticleService', ['$http', function($http) {
-    return {
-        list: function (successFunc) {
-                        $http.get('http://localhost:8080/articles')
-                            .success(function(data) {
-                                successFunc(data);
-                            });
-        }
-    };
-}]);
+// http://localhost:8080/articles
+app.factory('ArticleService', ['$resource',
+    function($resource) {
+        return $resource('/articles/:id',  {id: '@id'});
+    }]);

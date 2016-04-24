@@ -1,17 +1,25 @@
-app.controller('ArticleController',['$scope', 'ArticleService', function($scope, ArticleService) {
-    // ArticleService.success(function(data) {
-    //     $scope.articles = data;
-    // });
-    // Need to figure out delete.
-    // $scope.deleteArticle = function(article) {
-    //   article.$remove(function() {
-    //     $scope.articles.splice($scope.articles.indexOf(article), 1);
-    //   });
-    // };
-    $scope.articles = [];
+app.controller('ArticleController',['ArticleService', function(ArticleService) {
+    var self = this;
+    self.articles = [];
+    self.newArticle = {};
+    var fetchArticles = function () {
+        self.articles = ArticleService.query();
+    };
 
-    ArticleService.list(function (articles) {
-        $scope.articles = articles;
-    });
+    fetchArticles();
 
+    self.deleteArticle = function (article) {
+        ArticleService.delete(article)
+                    .$promise
+                    .then(fetchArticles);
+    };
+
+    self.addArticle = function () {
+       ArticleService.save(self.newArticle)
+                .$promise
+                .then(fetchArticles)
+                .then(function () {
+                   self.newArticle = {}; 
+                });
+    }
 }]);
