@@ -31,12 +31,12 @@ class ArticleController @Autowired() (private val articleRepository: ArticleRepo
   def updateArticle(@RequestBody() article: Article, @PathVariable() id: Long): Article = {
     // Trust but verify - use Option and orThrow
     Option(articleRepository.findOne(id)) match {
-      case Some(a) => articleRepository.saveAndFlush(article)
+      case Some(found) => {
+        article.id = found.id
+        articleRepository.saveAndFlush(article)
+      }
       case None => throw new ArticleNotFoundException(Map("id" -> id), "Article not found.")
     }
-
-    article.setId(id)
-    articleRepository.saveAndFlush(article)
   }
 
   @RequestMapping(value = Array("/{id}"), method = Array(RequestMethod.DELETE))

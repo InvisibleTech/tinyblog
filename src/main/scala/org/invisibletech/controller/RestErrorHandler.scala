@@ -1,6 +1,7 @@
 package org.invisibletech.tinyblog.controller
 
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.dao.EmptyResultDataAccessException
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.{ ControllerAdvice, ExceptionHandler, ResponseBody, ResponseStatus }
 
@@ -23,5 +24,12 @@ class RestErrorHandler {
   @ResponseBody
   def handleArticleNotFound(exception: ArticleNotFoundException): RestError = {
         new RestError(exception.getMessage, exception.additionalInfo)
+  }
+
+  @ExceptionHandler(Array(classOf[EmptyResultDataAccessException]))
+  @ResponseStatus(HttpStatus.NOT_FOUND)
+  @ResponseBody
+  def handleEmptyResultDao(exception: EmptyResultDataAccessException): RestError = {
+        new RestError(exception.getMessage, Map())
   }
 }
