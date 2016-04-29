@@ -8,19 +8,27 @@ My approach was to comment out things on the UI and get a controller to render t
 
 Tests are lacking at this point.  If I have time from other projects I may go back and add them.  They are important, but a holistic, modern example of a Scala based SpringBoot REST endpoint and Angular 1.5+ is the main point here.
 
-# To upgrade bower components
+# Create initial Scala project
+mvn archetype:generate -Dfilter=net.alchim31.maven:scala-archetype-simple
+
+select the only choice (#1) and fill out the rest of the information
+
+# Upgrade bower components
 bower update
 
-# To build
+# Build
 mvn clean package
 
-# To run
+# Run locally
 java -jar target/tinyblog-1.0-SNAPSHOT.jar
 
-#To push to Heroku
-heroku create
-git push heroku master
-heroku open
+# Push to Heroku
+* heroku create
+* git push heroku master
+* heroku open
+
+# Remove the app
+* heroku apps:destroy --app name --confirm name
 
 # References
 * Shyam Seshadri and Brad Green. “AngularJS: Up and Running.”
@@ -32,3 +40,4 @@ heroku open
 * http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-profiles.html
 * http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html#boot-features-external-config-profile-specific-properties
 * http://blog.ninja-squad.com/2015/05/28/angularjs-promises/
+* https://dzone.com/articles/spring-boot-and-scala
