@@ -18,9 +18,12 @@ mvn clean package
 java -jar target/tinyblog-1.0-SNAPSHOT.jar
 
 #To push to Heroku
-heroku create
-git push heroku master
-heroku open
+* heroku create
+* git push heroku master
+* heroku open
+
+#To remove the app
+* heroku apps:destroy --app <name> --confirm <name>;
 
 # References
 * Shyam Seshadri and Brad Green. “AngularJS: Up and Running.”
