@@ -35,3 +35,4 @@ java -jar target/tinyblog-1.0-SNAPSHOT.jar
 * http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-profiles.html
 * http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html#boot-features-external-config-profile-specific-properties
 * http://blog.ninja-squad.com/2015/05/28/angularjs-promises/
+* https://dzone.com/articles/spring-boot-and-scala
